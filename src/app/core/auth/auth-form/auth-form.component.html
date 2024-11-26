@@ -1,0 +1,14 @@
+<div class="w-full h-full flex justify-center items-center">
+  <div class="w-[20rem] h-auto p-5 flex flex-col gap-y-8 items-center bg-gray-100 rounded">
+    <span class="text-lg font-medium">{{title}}</span>
+    <form [formGroup]="form" (ngSubmit)="onsubmit()" class="flex flex-col gap-y-3">
+      <mat-form-field>
+        <input matInput formControlName="email" placeholder="Email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput formControlName="password" placeholder="Password">
+      </mat-form-field>
+      <button mat-flat-button color="primary"  type="submit">Submit</button>
+    </form>
+  </div>
+</div>
