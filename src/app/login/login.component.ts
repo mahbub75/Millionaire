@@ -20,6 +20,7 @@ export class LoginComponent {
 
   protected login(date: Auth): void {
     this.authService.login(date).subscribe(() => {
+      this.router.navigate(['/quiz']);
     })
   }
 }

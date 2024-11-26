@@ -1,0 +1,15 @@
+<div [class.pointer-events-none]="isDisable" class="flex flex-col gap-y-8 p-5 ">
+  <span>{{ question.title }}</span>
+  <div class="flex flex-col gap-y-2">
+    @for (choice of question.choices; track choice.id) {
+      <div class="flex items-center gap-x-3 text-green-500">
+        <mat-checkbox (change)="checkSelectedItems($event, choice,$index)">
+          <span  [class.text-red-500]="showCorrectAnswers && !choice.correctAnswer"
+                 [class.text-green-500]="showCorrectAnswers && choice.correctAnswer">{{ choice.title }}</span>
+        </mat-checkbox>
+      </div>
+    }
+  </div>
+
+  <button mat-flat-button color="primary" class="self-end" (click)="save()" [disabled]="isDisable">Save</button>
+</div>

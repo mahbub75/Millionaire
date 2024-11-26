@@ -1,0 +1,6 @@
+<div class="w-full py-8 flex items-center justify-center">
+  <div class="flex flex-col gap-y-4 items-center  w-[60rem] p-5">
+    <app-question class="self-center bg-gray-100 w-full" [question]="currentQuestion" (saveClicked)="checkAnswer()" (selectionChanged)="updateSelectedItems($event)" [showCorrectAnswers]="showCorrectAnswers"/>
+    <button mat-flat-button color="primary" class="self-end" (click)="selectNextQuestion()" [disabled]="loading">Next</button>
+  </div>
+</div>
