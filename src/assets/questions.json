@@ -1,7 +1,7 @@
 [
-    {"id": "1", "correctAnswerIds": ["1-1"], "point":12, "title":"How many elements are in the periodic table?", "choices":[
+    {"id": "1", "correctAnswerIds": ["1-1","1-2"], "point":12, "title":"How many elements are in the periodic table?", "choices":[
       { "id": "1-1","title":"118", "correctAnswer":true},
-      { "id": "1-2","title":"117", "correctAnswer":false},
+      { "id": "1-2","title":"117", "correctAnswer":true},
       { "id": "1-3","title":"110", "correctAnswer":false},
       { "id": "1-4","title":"120", "correctAnswer":false}
     ]},
