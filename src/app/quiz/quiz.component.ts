@@ -19,14 +19,15 @@ export class QuizComponent {
   protected readonly questions: Question[] = questionsList;
   protected currentQuestionIndex: number = 0;
   protected currentQuestion: Question = this.questions[this.currentQuestionIndex];
-  protected loading = false;
+  protected isNextBtnDisable = true;
+  protected score = 0;
   private selectedItems: string[] = [];
-  private score = 0;
 
   protected selectNextQuestion() {
     this.currentQuestionIndex++;
     this.currentQuestion = this.questions[this.currentQuestionIndex];
     this.selectedItems = [];
+    this.isNextBtnDisable = true
   }
 
   protected updateSelectedItems(selectedItems: string[]) {
@@ -34,7 +35,7 @@ export class QuizComponent {
   }
 
   protected checkAnswer() {
-    this.loading = true;
+    this.isNextBtnDisable = false;
     const correctChoices = this.currentQuestion.correctAnswerIds;
     const correctChoicesCount = correctChoices.length;
     const choicePoint = this.currentQuestion.point / correctChoicesCount;
@@ -43,6 +44,5 @@ export class QuizComponent {
         this.score = this.score + choicePoint;
       }
     })
-    this.loading = false;
   }
 }

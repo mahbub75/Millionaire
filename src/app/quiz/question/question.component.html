@@ -1,4 +1,4 @@
-<div [class.pointer-events-none]="isDisable" class="flex flex-col gap-y-8 p-5 ">
+<div [class.pointer-events-none]="isSaved" class="flex flex-col gap-y-8 p-5 ">
   <span>{{ question.title }}</span>
   <div class="flex flex-col gap-y-2">
     @for (choice of question.choices; track choice.id) {
@@ -11,5 +11,5 @@
     }
   </div>
 
-  <button mat-flat-button color="primary" class="self-end" (click)="save()" [disabled]="isDisable">Save</button>
+  <button mat-flat-button color="primary" class="self-end" (click)="save()" [disabled]="isSaved || !selectedItems.length">Save</button>
 </div>

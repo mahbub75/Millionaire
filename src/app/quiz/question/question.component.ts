@@ -18,17 +18,17 @@ import {MatButton} from "@angular/material/button";
 export class QuestionComponent {
   @Input({required: true, alias: 'question'}) set selectedQuestion(question: Question) {
     this.question = question;
-    this.isDisable = false;
+    this.isSaved = false;
     this.selectedItems = [];
     this.showCorrectAnswers = false;
   };
 
   @Output() selectionChanged = new EventEmitter<string[]>();
   @Output() saveClicked = new EventEmitter();
-  protected isDisable = false;
+  protected isSaved = false;
   protected showCorrectAnswers = false;
   protected question!: Question;
-  private selectedItems: string[] = [];
+  protected selectedItems: string[] = [];
 
   protected checkSelectedItems(matCheckboxChange: MatCheckboxChange, choice: QuestionChoice, index: number) {
     if (matCheckboxChange.checked) {
@@ -41,7 +41,7 @@ export class QuestionComponent {
 
   protected save() {
     this.showCorrectAnswers = true;
-    this.isDisable = true;
+    this.isSaved = true;
     this.saveClicked.emit();
   }
 
