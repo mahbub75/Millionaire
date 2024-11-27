@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {AuthFormComponent} from "../core/auth/auth-form/auth-form.component";
-import {Auth} from "../core/auth/auth";
-import {AuthService} from "../core/auth/auth.service";
+import {AuthFormComponent} from "../auth-form/auth-form.component";
+import {Auth} from "../auth";
+import {AuthService} from "../../core/services/auth.service";
 import {Router} from "@angular/router";
 
 @Component({
