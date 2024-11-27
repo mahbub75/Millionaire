@@ -21,9 +21,14 @@ export class QuizComponent {
   protected currentQuestion: Question = this.questions[this.currentQuestionIndex];
   protected isNextBtnDisable = true;
   protected score = 0;
+  protected isCompleted = false;
   private selectedItems: string[] = [];
 
   protected selectNextQuestion() {
+    if (this.currentQuestionIndex === this.questions.length-1){
+      this.isCompleted = true;
+      return;
+    }
     this.currentQuestionIndex++;
     this.currentQuestion = this.questions[this.currentQuestionIndex];
     this.selectedItems = [];
