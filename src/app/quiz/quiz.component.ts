@@ -19,7 +19,6 @@ export class QuizComponent {
   protected currentQuestionIndex: number = 0;
   protected currentQuestion: Question = this.questions[this.currentQuestionIndex];
   protected loading = false;
-  protected showCorrectAnswers = false;
   private selectedItems: string[] = [];
   private score = 0;
 
@@ -27,7 +26,6 @@ export class QuizComponent {
     this.currentQuestionIndex++;
     this.currentQuestion = this.questions[this.currentQuestionIndex];
     this.selectedItems = [];
-    this.showCorrectAnswers = false;
   }
 
   protected updateSelectedItems(selectedItems: string[]) {
@@ -45,6 +43,5 @@ export class QuizComponent {
       }
     })
     this.loading = false;
-    this.showCorrectAnswers = true;
   }
 }

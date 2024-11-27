@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Question} from "./question";
 import {MatCheckbox, MatCheckboxChange} from "@angular/material/checkbox";
 import {QuestionChoice} from "./question-choice";
@@ -15,19 +15,19 @@ import {MatButton} from "@angular/material/button";
   styleUrl: './question.component.scss'
 })
 export class QuestionComponent {
-  @Input({required: true,alias:'question'}) set selectedQuestion(question: Question) {
+  @Input({required: true, alias: 'question'}) set selectedQuestion(question: Question) {
     this.question = question;
     this.isDisable = false;
     this.selectedItems = [];
     this.showCorrectAnswers = false;
   };
 
-  @Input() showCorrectAnswers = false;
   @Output() selectionChanged = new EventEmitter<string[]>();
   @Output() saveClicked = new EventEmitter();
   protected isDisable = false;
+  protected showCorrectAnswers = false;
+  protected question!: Question;
   private selectedItems: string[] = [];
-  question!: Question;
 
   protected checkSelectedItems(matCheckboxChange: MatCheckboxChange, choice: QuestionChoice, index: number) {
     if (matCheckboxChange.checked) {
@@ -39,8 +39,9 @@ export class QuestionComponent {
   }
 
   protected save() {
-    this.saveClicked.emit();
+    this.showCorrectAnswers = true;
     this.isDisable = true;
+    this.saveClicked.emit();
   }
 
 }
