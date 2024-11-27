@@ -6,7 +6,7 @@
     </div>
   } @else {
     <div class="flex flex-col gap-y-4 items-center  w-[60rem] p-5">
-      <app-question class="self-center bg-gray-100 w-full" [question]="currentQuestion" (saveClicked)="checkAnswer()" (selectionChanged)="updateSelectedItems($event)" />
+      <app-question class="self-center bg-gray-100 w-full" [question]="currentQuestion" (saveClicked)="RecalculateScore()" (selectionChanged)="updateSelectedItems($event)" />
       <button mat-flat-button color="primary" class="self-end" (click)="selectNextQuestion()" [disabled]="isNextBtnDisable">Next</button>
     </div>
   }

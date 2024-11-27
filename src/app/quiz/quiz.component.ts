@@ -39,7 +39,7 @@ export class QuizComponent {
     this.selectedItems = selectedItems;
   }
 
-  protected checkAnswer() {
+  protected RecalculateScore() {
     this.isNextBtnDisable = false;
     const correctChoices = this.currentQuestion.correctAnswerIds;
     const correctChoicesCount = correctChoices.length;
