@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import questionsList from "../../assets/questions.json"
 import {Question} from "./question/question";
 import {QuestionComponent} from "./question/question.component";
@@ -12,7 +12,8 @@ import {MatButton} from "@angular/material/button";
     MatButton
   ],
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.scss'
+  styleUrl: './quiz.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuizComponent {
   protected readonly questions: Question[] = questionsList;

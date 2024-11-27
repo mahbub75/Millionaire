@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {Question} from "./question";
 import {MatCheckbox, MatCheckboxChange} from "@angular/material/checkbox";
 import {QuestionChoice} from "./question-choice";
@@ -12,7 +12,8 @@ import {MatButton} from "@angular/material/button";
     MatButton
   ],
   templateUrl: './question.component.html',
-  styleUrl: './question.component.scss'
+  styleUrl: './question.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionComponent {
   @Input({required: true, alias: 'question'}) set selectedQuestion(question: Question) {

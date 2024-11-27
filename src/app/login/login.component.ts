@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {AuthFormComponent} from "../core/auth/auth-form/auth-form.component";
 import {Auth} from "../core/auth/auth";
 import {AuthService} from "../core/auth/auth.service";
@@ -11,7 +11,8 @@ import {Router} from "@angular/router";
     AuthFormComponent
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
 
