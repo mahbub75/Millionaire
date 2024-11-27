@@ -44,10 +44,16 @@ export class QuizComponent {
     const correctChoices = this.currentQuestion.correctAnswerIds;
     const correctChoicesCount = correctChoices.length;
     const choicePoint = this.currentQuestion.point / correctChoicesCount;
+    let acceptedPoint = 0
     this.selectedItems.forEach((item, index) => {
       if (correctChoices.includes(item)) {
-        this.score = this.score + choicePoint;
+        acceptedPoint = acceptedPoint + choicePoint;
+      } else {
+        acceptedPoint = acceptedPoint - choicePoint;
       }
     })
+    if(acceptedPoint>0){
+      this.score = this.score + acceptedPoint;
+    }
   }
 }
